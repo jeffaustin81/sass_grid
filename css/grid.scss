@@ -1,0 +1,89 @@
+/*The first thing we're going to add is a global reset and box-sizing rule. This will make sure that padding applied to our elements is added within their calculated dimensions, giving us far more freedom for defining column widths.*/
+@import "variables";
+@import "mixins";
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    @include border-box;
+    }
+/*Next we'll add a rule to make sure any images used behave fluidly.*/
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto !important;
+    }
+/*Now some rules to make sure our wrapper element behaves itself.*/
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+/*All our row elements do is contain the columns, making sure that groups of columns clear each other properly. Let's add some general .clearfix rules to our wrapper and row elements.*/
+.wrapper:after,
+.row:after {
+      content: "";
+      display: table;
+      clear: both;
+      }
+/*We're going to have a range of column classes, depending on the size of each one (for example .column-1 and .column-6. Let's use an attribute selector to target and style all of these in one go.*/
+[class*='column-'] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    }
+/*That's our mobile view taken care of, now let's add a media query to give us a different layout for larger screens. You'll need to determine breakpoints for your own grid, but we're going to use one arbitrary breakpoint of 30em.*/
+@media only screen and (min-width: 30em) {
+    .wrapper {
+        width: 95%;
+        max-width: 65em;
+    }
+    .column-1 {
+        width: 8.33333%;
+    }
+    .column-2 {
+        width: 16.66667%;
+        }
+
+    .column-3 {
+        width: 25%;
+        }
+
+    .column-4 {
+        width: 33.33333%;
+        }
+
+    .column-5 {
+        width: 41.66667%;
+        }
+
+    .column-6 {
+        width: 50%;
+        }
+
+    .column-7 {
+        width: 58.33333%;
+        }
+
+    .column-8 {
+        width: 66.66667%;
+        }
+
+    .column-9 {
+        width: 75%;
+        }
+
+    .column-10 {
+        width: 83.33333%;
+        }
+
+    .column-11 {
+        width: 91.66667%;
+        }
+
+    .column-12 {
+        width: 100%;
+        }
+}
