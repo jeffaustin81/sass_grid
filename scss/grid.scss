@@ -33,10 +33,10 @@ img {
     min-height: 1px;
     }
 /*That's our mobile view taken care of, now let's add a media query to give us a different layout for larger screens. You'll need to determine breakpoints for your own grid, but we're going to use one arbitrary breakpoint of 30em.*/
-@media only screen and (min-width: 30em) {
+@media #{$breakpoint-medium} {
     .wrapper {
         width: 95%;
-        max-width: 65em;
+        max-width: $grid-max-width;
     }
     .column-1 {
         width: 8.33333%;

@@ -1,4 +1,11 @@
 /*The first thing we're going to add is a global reset and box-sizing rule. This will make sure that padding applied to our elements is added within their calculated dimensions, giving us far more freedom for defining column widths.*/
+.wrapper, .row {
+  *zoom: 1; }
+  .wrapper:before, .row:before, .wrapper:after, .row:after {
+    content: " ";
+    display: table; }
+  .wrapper:after, .row:after {
+    clear: both; }
 
 *,
 *:after,
@@ -21,13 +28,6 @@ img {
   margin: 0 auto; }
 
 /*All our row elements do is contain the columns, making sure that groups of columns clear each other properly. Let's add some general .clearfix rules to our wrapper and row elements.*/
-.wrapper, .row {
-  *zoom: 1; }
-  .wrapper:before, .row:before, .wrapper:after, .row:after {
-    content: " ";
-    display: table; }
-  .wrapper:after, .row:after {
-    clear: both; }
 /*We're going to have a range of column classes, depending on the size of each one (for example .column-1 and .column-6. Let's use an attribute selector to target and style all of these in one go.*/
 [class*='column-'] {
   float: left;
