@@ -20,13 +20,11 @@ img {
     width: 100%;
     margin: 0 auto;
 }
+
 /*All our row elements do is contain the columns, making sure that groups of columns clear each other properly. Let's add some general .clearfix rules to our wrapper and row elements.*/
-.wrapper:after,
-.row:after {
-      content: "";
-      display: table;
-      clear: both;
-      }
+.wrapper, .row {
+  @extend %clearfix;
+}
 /*We're going to have a range of column classes, depending on the size of each one (for example .column-1 and .column-6. Let's use an attribute selector to target and style all of these in one go.*/
 [class*='column-'] {
     float: left;
